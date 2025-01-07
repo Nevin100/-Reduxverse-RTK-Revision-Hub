@@ -20,7 +20,7 @@ export const productsApi = createApi({
     //Add New Products : {Updating}
     addNewProducts: builder.mutation({
       query: (newProduct) => ({
-        url: `/product/add`,
+        url: `/products/add`,
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: newProduct,
