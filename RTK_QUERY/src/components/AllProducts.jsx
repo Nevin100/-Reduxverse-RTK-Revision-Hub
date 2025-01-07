@@ -1,9 +1,14 @@
 import React from "react";
+import { useGetAllProductsQuery } from "../app/service/dummyData.js";
 
 const AllProducts = () => {
+  const { data } = useGetAllProductsQuery();
+
   return (
     <div>
-      <h1>Get All Products</h1>
+      {data?.products.map((p) => (
+        <h1 key={p.id}>{p.title}</h1>
+      ))}
     </div>
   );
 };
