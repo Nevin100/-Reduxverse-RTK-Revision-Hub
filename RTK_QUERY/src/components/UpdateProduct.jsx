@@ -1,7 +1,7 @@
 import React from "react";
 import { useUpdateProductMutation } from "../app/service/dummyData.js";
 
-const UpdateProduct = ({ productID }) => {
+const UpdateProduct = ({ productId }) => {
   const [updateProduct, { data }] = useUpdateProductMutation();
 
   const handleUpdateProduct = async () => {
@@ -11,7 +11,7 @@ const UpdateProduct = ({ productID }) => {
       };
 
       await updateProduct({
-        id: productID,
+        id: productId,
         updateProduct: UpdatedProductData,
       });
     } catch (error) {

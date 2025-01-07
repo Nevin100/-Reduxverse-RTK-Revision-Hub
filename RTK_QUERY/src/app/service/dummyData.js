@@ -36,6 +36,13 @@ export const productsApi = createApi({
         body: updateProduct,
       }),
     }),
+
+    deleteProduct: builder.mutation({
+      query: (id) => ({
+        url: `/products/${id}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
@@ -44,4 +51,5 @@ export const {
   useGetProductByIdQuery,
   useAddNewProductsMutation,
   useUpdateProductMutation,
+  useDeleteProductMutation,
 } = productsApi; // `use${GetAllProducts}Query` or use${AddNewProducts}mutation hook creation
