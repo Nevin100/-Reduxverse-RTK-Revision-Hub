@@ -17,13 +17,23 @@ export const productsApi = createApi({
       query: (id) => `/products/${id}`,
     }),
 
-    //Add New Products : {Updating}
+    //Add New Products : {Creating}
     addNewProducts: builder.mutation({
       query: (newProduct) => ({
         url: `/products/add`,
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: newProduct,
+      }),
+    }),
+
+    //Update New Products : {Updating}
+    updateProduct: builder.mutation({
+      query: (id, updateProduct) => ({
+        url: `/products/${id}`,
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: updateProduct,
       }),
     }),
   }),
@@ -33,4 +43,5 @@ export const {
   useGetAllProductsQuery,
   useGetProductByIdQuery,
   useAddNewProductsMutation,
+  useUpdateProductMutation,
 } = productsApi; // `use${GetAllProducts}Query` or use${AddNewProducts}mutation hook creation
